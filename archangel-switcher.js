@@ -35,8 +35,14 @@ $(document).ready(function () {
     </a>.`,
   
     `      <p>I don't give a damn <i>and neither does God be damned to give a damn as a hypothetical</i>, about how rich YOU ARE BEZOS - if you can't perform your role and expectations, 
-    and execute out my FMLA medical leave without retaliation and without adverse actions,
-    as set forth by operational stands.</p>
+    and execute out my FMLA medical leave without retaliation and without adverse actions, then why are you leaderes in your role and why do you think you actually now have any credibility to still hold those
+    positions as leaders? Because real leaders knwo how to action out my wages and action out my medical leaves and get me my rightful positoin at Amazon.com, because right now, 
+    who has just shown the world, and the world not as the public world (I would rather want to not  have the public know fully and become aware for their sake of emotions not felt in 
+      absolute confusion as I am right now), the world as in all the leaders and or rightful counterparts of your stake hodlers of Amazon? Because now they realize wow Amazon VP's and CEO's are staffed
+      with a bunch of Harvard AB Majors of actual non-educated and non-rational based children that aren't even chlidren at this point they are just parasites. 
+      You went to  a college, and got a degree, at Harvard, in AB, and you seem to not undersatnd how to at all be self aware, and
+      know the importance of: <a href="https://www.youtube.com/watch?v=8CrOL-ydFMI" target="_blank">is this water?</a> Are you kdding me Andy Jassy, 90+ days of reading my emails and your respond on Aug 15 to me is what? "Egregious." Sure Andy.<br>
+      <a href="mailto:admissions@harvard.edu" target="_blank">Harvard.edu</a>? Go and strip away his AB Degree if you want any or at all credibilty left to your school's name, because, how did this guy graduate from Harvard?</p>
     <blockquote style="margin-left:1.5rem; font-family:ethnocentric, sans-frans; color:darkblue; font-weight:200;">Because I guess we, at the amazon executive control centre of officers and leaders that
     drive forward the ship of Amazon Employee Resource Center of <a href="mailto:erc@amazon.com" target="_blank">erc@amazon.com</a> 
     boarded by directors such as  <a href="mailto:wendall.weeks@amazon.com" target="_blank">wendallweeks@amazon.com</a> of wendalls of safety windows no more, keep forgetting why Amazon Legal freaked out, and the root
