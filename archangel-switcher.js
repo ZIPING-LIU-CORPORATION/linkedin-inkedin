@@ -35,7 +35,8 @@ $(document).ready(function () {
     </a>.`,
   
     `      <p>I don't give a damn <i>and neither does God be damned to give a damn as a hypothetical</i>, about how rich YOU ARE BEZOS - if you can't perform your role and expectations, 
-    and execute out my FMLA medical leave without retaliation and without adverse actions, then why are you leaderes in your role and why do you think you actually now have any credibility to still hold those
+    and execute out my FMLA medical leave without retaliation and without adverse actions, then <a href="https://justice.ziping.org" target="_blank">why are you leaderes in your role</a> and why do you think you actually
+     now have any credibility to still hold those
     positions as leaders? Because real leaders knwo how to action out my wages and action out my medical leaves and get me my rightful positoin at Amazon.com, because right now, 
     who has just shown the world, and the world not as the public world (I would rather want to not  have the public know fully and become aware for their sake of emotions not felt in 
       absolute confusion as I am right now), the world as in all the leaders and or rightful counterparts of your stake hodlers of Amazon? Because now they realize wow Amazon VP's and CEO's are staffed
