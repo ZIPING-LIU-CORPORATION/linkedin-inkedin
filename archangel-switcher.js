@@ -36,7 +36,10 @@ $(document).ready(function () {
   
     `      <p>I don't give a damn <i>and neither does God be damned to give a damn as a hypothetical</i>, about how rich YOU ARE BEZOS - if you can't perform your role and expectations, 
     and execute out my FMLA medical leave without retaliation and without adverse actions,
-    as set forth by operational stands, because I guess we keep forgetting why Amazon Legal freaked out, and the root
+    as set forth by operational stands.</p>
+    <blockquote style="margin-left:1.5rem; font-family:ethnocentric, sans-frans; color:darkblue; font-weight:200;">Because I guess we, at the amazon executive control centre of officers and leaders that
+    drive forward the ship of Amazon Employee Resource Center of <a href="mailto:erc@amazon.com" target="_blank">erc@amazon.com</a> 
+    boarded by directors such as  <a href="mailto:wendall.weeks@amazon.com" target="_blank">wendallweeks@amazon.com</a> of wendalls of safety windows no more, keep forgetting why Amazon Legal freaked out, and the root
     reason is because they messed up my medical leave. It's that simple. And yes, in order to "fix" this mess,
     they retaliated against me and then commited vioaltions in the American Disability Act, 
     FMLA Act, Civil Rights Act of 1964, the Fair Labour Act, and the Forced Labor Act, to just name a few.
@@ -68,7 +71,7 @@ $(document).ready(function () {
     archived website from July 4th 2022, in the meantime as compensation for the wait
     required for our delays, now viewable here: <a href="https://julyfourth.cn"  target="_blank">
     julyfourth.cn
-    </a>.</p>`,
+    </a>.</blockquote>`,
     `<h2>As a furthered restatement of our policies, such restrictions are undue given our data and privacy requirements that stand in good-faith beyond any good-faith terms of LinkedIn</h2>
     
     Writing and other content (including but not limited to comments, videos, and stuff) written or produced by Ziping Liu or ZIPING LIU may be in a form of satire (including but not limited to usage of profanity) and not reflective of the author(s)’s state of mind. Excluding words of “love” or empathic nature, satire not applicable. Regarding, words of “faith” and/or “hope”, satire may be applicable when “faith” and/or “hope” cannot be retained in good faith with all parties involved. But prismed∿love or blind-faith, remains always, or as known as love, from my faith alone, driven by my soul force and ℎ𝑜𝑡.𝑎|𝑓>𝑒𝑎𝑟𝑠.
