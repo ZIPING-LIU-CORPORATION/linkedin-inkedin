@@ -1,0 +1,1054 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>GMass Dashboard for liu@ziping.org</title>
+    <meta name="description" content="GMass allows you to easily schedule emails, send out mass emails and mail merge campaigns and more with Gmail! Click here to learn about more features!" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="telephone=no" name="format-detection">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://blogcdn.gmass.co/images/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://blogcdn.gmass.co/images/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://blogcdn.gmass.co/images/fav/favicon-16x16.png">
+    <link rel="manifest" href="https://blogcdn.gmass.co/images/fav/site.webmanifest">
+    <link rel="mask-icon" href="https://blogcdn.gmass.co/images/fav/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:description" content="Turn your Gmail account into a powerful email marketing platform" />
+    <meta name="twitter:title" content="GMass: Send mass emails straight from Gmail" />
+    <meta name="twitter:image" content="https://www.gmass.co/img2017/GMass.gif">
+
+    <!-- Chrome webstore -->
+    <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/ehomdgjhgmbidokdgicgmdiedadncbgf">
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet" />
+    <link rel="icon" href="https://blogcdn.gmass.co/assets/images/logo-for-mobile-icon.png" type="image/png" sizes="20x20" />
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://blogcdn.gmass.co/assets/css/style.css?cachebuster=080822">
+    <link rel="stylesheet" href="https://blogcdn.gmass.co/assets/css/dash.css?cachebust=080822">
+
+    <link rel="stylesheet" href="https://blogcdn.gmass.co/assets/css/navbar.css">
+
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-messaging.js"></script>
+
+    <script src="https://blogcdn.gmass.co/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="https://blogcdn.gmass.co/assets/js/jquery-ui-slider.js"></script>
+    <script src="https://blogcdn.gmass.co/assets/js/jquery.growl.js"></script>
+    <script src="https://blogcdn.gmass.co/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://blogcdn.gmass.co/assets/js/jquery.malihu.PageScroll2id.js"></script>
+    <script src="https://blogcdn.gmass.co/assets/js/jquery.matchHeight-min.js"></script>
+    <script src="https://blogcdn.gmass.co/assets/js/jquery.mmenu.all.js"></script>
+    <script src="https://blogcdn.gmass.co/assets/js/owl.carousel.min.js"></script>
+    <script src="https://blogcdn.gmass.co/assets/js/OwlCarousel2Thumbs.min.js"></script>
+    <script src="https://blogcdn.gmass.co/assets/js/aos.js"></script>
+    <script src="https://blogcdn.gmass.co/assets/js/main2.js?cachebust=041922b"></script>
+
+    <script>
+
+
+        //google analytics code
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-60684534-2', 'auto');
+        ga('send', 'pageview');
+
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        if (getCookie("GMassLanding") == null) {
+            var today = new Date();
+            var date = today.toISOString();
+
+            setCookie("GMassLanding", document.location.href, 365);
+            setCookie("GMassReferrer", document.referrer, 365);
+            setCookie("GMassDate", date, 365);
+        }
+
+    </script>
+
+
+</head>
+<body>
+
+    <div id="dashboard-alerts">
+        <div class="dashboard-alert template">
+            <div class="dashboard-alert-header">
+                <h1>Alert</h1>
+                <div class="dashboard-alert-close">
+                    <i class="far fa-times-circle"></i>
+                </div>
+            </div>
+            <div class="dashboard-alert-body"></div>
+        </div>
+    </div>
+
+    <header>
+        <nav class="navigation-bar">
+            <picture>
+                    <a href="/dashboard">
+                        <img class="d-lg-none" src="/img/gmass.png" />
+                        <img class="d-none d-lg-block logo-img" src="/images/gmass.png">
+                    </a>
+            </picture>
+            <div class="user-box">
+                <!--
+                    <div class="avatar">
+                        <div class="user-status"></div>
+                    </div>
+                -->
+                <p class="email">
+
+
+liu@ziping.org                    
+                </p>
+            </div>
+            <div class="navbar-menu">
+                <a href="https://gmass.co/g/support" target="support">
+                    <i class="far fa-question-circle"></i>
+                    <span>Support</span>
+                </a>
+                <a href="/dashboard">
+                    <i class="fas fa-th"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="show-settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="/dashboard/logout">
+                    <i class="fas fa-power-off"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+    <div class="preloader"></div>
+
+    <!-- MMENU -->
+    <div id="page-wrap" class="page-wrap">
+
+
+        
+<style>
+    thead.tableFloatingHeaderOriginal {
+        background: #fff;
+    }
+
+    .show-followups {
+        text-decoration: none !important;
+    }
+
+    .campaigns-wrap table tr.more-info {
+        display: none;
+    }
+
+    .campaigns-wrap td.actions {
+        white-space: nowrap;
+    }
+
+    .campaigns-wrap .fa-minus {
+        display: none;
+    }
+
+    .campaigns-wrap tr.expanded-followups .fa-minus {
+        display: block;
+    }
+
+    .campaigns-wrap tr.expanded-followups .fa-plus {
+        display: none;
+    }
+
+    .campaigns-wrap.loading {
+        opacity: 0.5;
+    }
+
+    .expand-row {
+        display: inline-block;
+    }
+
+    .campaigns-wrap tr.expand .expand-row {
+        transform: rotate(90deg);
+    }
+
+    .table td, .table th {
+        padding: .3rem;
+    }
+
+    .campaigns-wrap tr.followup, .campaigns-wrap tr.followup + tr.more-info {
+        opacity: 0.75;
+        background: #eee;
+        font-size: 85%;
+    }
+
+    .campaigns-wrap tr.expand + tr.delayed-stats + tr.more-info {
+        display: table-row;
+    }
+
+    .campaigns-wrap td .percent {
+        display: block;
+        color: #666;
+        font-size: 80%;
+    }
+
+    .campaigns-wrap tr.more-info td {
+    }
+
+    .campaigns-wrap tr.send-error td {
+        background-color: #ffabab;
+    }
+
+    .campaigns-wrap tr.send-processing td {
+        background-color: #d4f1d5;
+    }
+
+    .campaigns-wrap tr.paused td {
+        background-color: #ffd800;
+    }
+
+    .campaigns-wrap tr.send-cancel td {
+        background-color: #ffecec;
+    }
+
+    .campaigns-wrap .fa-exclamation-triangle {
+        color: red;
+    }
+
+    .campaigns-wrap .change-state {
+        display: none;
+    }
+
+    .campaigns-wrap tr.running .change-state.pause {
+        display: flex;
+    }
+
+    .campaigns-wrap tr.paused .change-state.play {
+        display: flex;
+    }
+
+    .campaigns-wrap tr:not(.cancelled) .change-state.cancel {
+        display: flex;
+    }
+
+    .campaigns-wrap .sort-col {
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    .sort-col .fa-sort-amount-up, .sort-col .fa-sort-amount-down {
+        display: none;
+        margin-right: 4px;
+    }
+
+    .sort-col.sorted-asc .fa-sort-amount-up {
+        display: inline-block;
+    }
+
+    .sort-col.sorted-desc .fa-sort-amount-down {
+        display: inline-block;
+    }
+
+    span.sender-address {
+        color: #fff;
+        padding: 2px 4px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    tr.delayed-stats td {
+        border-top: 1px solid #fff;
+        text-align: center;
+        font-size: 85%;
+        color: #999;
+    }
+
+    #loading-true, #loading-false {
+        padding: 1rem;
+    }
+
+    .t-subject {
+        width: 25vw;
+        display: inline-block;
+    }
+
+    .sentiment {
+        border-radius: 4px;
+        font-size: 85%;
+        padding: 4px;
+    }
+
+    .sentiment table {
+        border-collapse: collapse;
+        background: #8677b9;
+    }
+
+    .sentiment table td {
+        padding: 1px 4px;
+        font-size: 85%;
+    }
+    .reply-content .reply-full-text {
+        display:none;
+    }
+    .reply-content.see-more .reply-full-text {
+        display: block;
+    }
+    .reply-content.see-more .reply-snippet{
+        display: none;
+    }
+    .bump-text {
+        max-width: 200px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+</style>
+
+
+<!-- Modals -->
+<div class="modal fade" id="message-modal">
+    <div class="modal-dialog" role="document" style="max-width:90%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <a class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+            </div>
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="cancel-modal">
+    <div class="modal-dialog" role="document" style="max-width:90%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cancel Campaign</h5>
+                <a class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to cancel this GMass campaign and stop sending this email to your list?
+                <div class="has-followups">
+                    <br />
+                    There are auto follow-ups that are part of this campaign, which you can choose to let either a) continue to send to those that have already received the original campaign message, or b) cancel.
+                </div>
+                <br />
+                <p style="margin-top:1em">
+                    <a href="#" class="btn btn-danger" data-cancelaf="false" data-pending="Cancelling campaign...">
+                        Cancel campaign
+                    </a>
+                    <a href="#" class="btn btn-danger has-followups" data-cancelaf="true" data-pending="Cancelling campaign...">
+                        Cancel campaign and auto followups
+                    </a>
+                    <a href="#" data-dismiss="modal" style="margin-left:20px">
+                        Do nothing
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="pause-modal">
+    <div class="modal-dialog" role="document" style="max-width:90%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Pause Campaign</h5>
+                <a class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to PAUSE this GMass campaign?
+                <div class="has-followups">
+                    <br />
+                    You have a choice of pausing just the original campaign, or also pausing auto follow-ups that haven't yet sent to people that have already received the original campaign message.
+                </div>
+                <br />
+                <p style="margin-top:1em">
+                    <a href="#" class="btn btn-danger" data-type="p" data-pending="Pausing campaign...">
+                        Pause campaign
+                    </a>
+                    <a href="#" class="btn btn-danger has-followups" data-type="q" data-pending="Pausing campaign...">
+                        Pause campaign and pause followups
+                    </a>
+                    <a href="#" data-dismiss="modal" style="margin-left:20px">
+                        Do nothing
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="play-modal">
+    <div class="modal-dialog" role="document" style="max-width:90%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Resume Campaign</h5>
+                <a class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to RESUME this GMass campaign? If you click OK, you campaign will continue sending on the schedule you've set.
+                <br />
+                <p style="margin-top:1em">
+                    <a href="#" class="btn btn-danger" data-pending="Resuming campaign...">
+                        Resume campaign
+                    </a>
+                    <a href="#" data-dismiss="modal" style="margin-left:20px">
+                        Do nothing
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="ab-modal">
+    <div class="modal-dialog" role="document" style="max-width:800px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">A/B Campaign</h5>
+                <a class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+            </div>
+            <div class="modal-body">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="debuglog-modal">
+    <div class="modal-dialog" role="document" style="max-width:800px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Debug Log</h5>
+                <a class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+            </div>
+            <div class="modal-body" style="max-height: calc(100vh - 200px); overflow: auto;">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<section class="table-section">
+
+    <div class="flex tab-strip">
+        <a href="#" data-tab="current-campaigns"><div class="tab">Current Campaigns</div></a>
+        <a href="#" data-tab="past-campaigns"><div class="tab ">Previous Campaigns</div></a>
+            <a href="#" data-tab="transactional"><div class="tab ">Transactional</div></a>
+    </div>
+
+    <div id="current-campaigns">
+        <div id="loading-true">Current campaigns loading...</div>
+        <div id="loading-error-true" style="display:none">An error occurred. <a href="#" class="retry-load" data-current="true">Retry</a></div>
+        <div class="campaigns-wrap" data-current="true" data-page="1" data-sort="campaigns.id" data-dir="desc"></div>
+    </div>
+
+    <div id="past-campaigns">
+        <div id="loading-false">Past campaigns loading...</div>
+        <div id="loading-error-false" style="display:none">An error occurred. <a href="#" class="retry-load" data-current="false">Retry</a></div>
+        <div class="campaigns-wrap" data-current="false" data-page="1" data-sort="campaigns.id" data-dir="desc"></div>
+    </div>
+        <div id="transactional">
+            <div id="loading-transactional">Transactional messages loading...</div>
+            <div id="loading-error-transactional" style="display:none">An error occurred. <a href="#" class="retry-load" data-current="false">Retry</a></div>
+            <div class="campaigns-wrap" data-transactional="true" data-current="false" data-page="1" data-sort="transactional.id" data-dir="desc"></div>
+        </div>
+</section>
+
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
+
+
+
+
+
+    </div> <!-- MMENU -->
+
+
+        <footer class="footer">
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <p>© 2022 GMass, Inc.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>    <div id="mobilemenu"></div>
+
+    <script>
+        $(function () {
+
+            // run now and every 30 seconds
+            (function checkAlerts() {
+                $.getJSON('/dashboard/getalerts', function (ret) {
+
+                    ret.forEach(a => {
+
+                        // check if alert is already on the page
+                        if ($('.dashboard-alert[data-alertid="' + a.Id + '"]').length > 0)
+                            return;
+
+                        var div = $('.dashboard-alert.template').clone();
+
+                        div.find('.dashboard-alert-body').html(a.AlertMessage);
+                        div.attr('data-alertid', a.Id);
+
+                        $('#dashboard-alerts').append(div);
+                        div.removeClass('template')
+                    });
+
+                });
+                setTimeout(checkAlerts, 30000);
+            })();
+        })
+    </script>
+
+    
+    <script>
+    var stateDraftId = null;
+    var email = 'liu@ziping.org';
+        $(function () {
+
+            $('.tab-strip > a').on('click', function (e) {
+                e.preventDefault();
+
+                $('.tab-strip > a > div').removeClass('active-tab');
+                $(this).find('>div').addClass('active-tab');
+
+
+                var ts = $(this).parent();
+
+                var sel = $(this).data('tab');
+
+                ts.find('> a').each(function () {
+                    var tab = $(this).data('tab');
+
+
+                    if (tab == sel) {
+                        $('#' + tab).show();
+                    }
+                    else {
+                        $('#' + tab).hide();
+                    }
+                });
+
+                $(this).find('.tab').addClass('active-tab');
+            });
+
+            $('.tab-strip > a').first().click();
+
+        if (localStorage.getItem('dashboard-teams') != null) {
+            $('#team').val(localStorage.getItem('dashboard-teams'));
+        }
+        function getDraftRow(draftId) {
+            return $('tr[data-draftid="' + draftId + '"]');
+        }
+        function showAlert(msg) {
+            // hide existing modals
+            $('.modal').modal('hide');
+
+            var modal = $('#message-modal');
+            modal.appendTo('body');
+            modal.find('.modal-body').html(msg);
+            modal.find('.modal-title').text('Alert');
+            modal.modal('show');
+        }
+
+        function updateCampaignTables() {
+            $('.campaigns-wrap').each(function () {
+                updateCampaignTable(this);
+            });
+        }
+
+            function updateCampaignTable(div) {
+
+            div = $(div);
+            var current = div.data('current');
+            if (div.data('transactional'))
+                current = 'transactional';
+            var page = div.data('page');
+            var search = div.find('.campaign-search').val();
+            var data = {
+                current: current,
+                pageNumber: page,
+                search: search,
+                teamMember: $('#team').val(),
+                sort: div.data('sort'),
+                dir: div.data('dir')
+                };
+
+                div.find('.advanced-filter-settings').find('input, select').each(function () {
+                    if (this.type == 'checkbox') {
+                        if (this.checked) {
+                            data[this.name] = $(this).val();
+                        }
+                    }
+                    else {
+                        data[this.name] = $(this).val();
+                    }
+            });
+
+            div.addClass('loading');
+            $('#loading-error-' + current).hide();
+
+                if (div.data('transactional'))
+                    return;
+
+            $.ajax({
+                type: 'POST',
+                data: data,
+                url: div.data('transactional') ? '/dashboard/GetTransactionalTable' : '/dashboard/GetCampaignsTable',
+                success: function (ret) {
+                    $('#loading-' + current).hide();
+
+                    div.html(ret);
+                    div.removeClass('loading');
+
+                    var tbl = div.find('table');
+                    var sort = tbl.data('sort');
+                    var dir = tbl.data('dir');
+
+                    var th = tbl.find('th[data-sort="' + sort + '"]');
+                    th.addClass('sorted');
+                    th.addClass('sorted-' + dir);
+
+                    //tbl.stickyTableHeaders({ cacheHeaderHeight: true });
+                },
+                error: function (err) {
+                    $('#loading-error-' + current).show();
+                }
+            })
+
+        }
+        $('.retry-load').on('click', function (e) {
+            e.preventDefault();
+            var current = $(this).data('current');
+            var tbl = $('.campaigns-wrap[data-current="' + current + '"]');
+            updateCampaignTable(tbl);
+        });
+
+        $('.campaigns-wrap').each(function () { updateCampaignTable(this); });
+
+        $(document).on('change', '#team', function () {
+            $('.campaigns-wrap').each(function () { updateCampaignTable(this); });
+            localStorage.setItem('dashboard-teams', $(this).val());
+        });
+
+
+        $(document).on('click', '.sender-address', function () {
+            $('#team').val($(this).data('teammember')).trigger('change');
+        });
+
+        $(document).on('click', 'td .expand-row', function (e) {
+            var tr = $(this).parents('tr');
+            tr.toggleClass('expand');
+            var campaignId = tr.data('campaignid');
+
+            var detailsTr = $('[data-moreinfofor="' + campaignId + '"]');
+            if (tr.hasClass('expand'))
+                detailsTr.css('display', 'table-row');
+            else
+                detailsTr.css('display', 'none');
+            e.preventDefault();
+        });
+
+        $(document).on('click', 'th .expand-row', function (e) {
+            var tr = $(this).parents('tr');
+            tr.toggleClass('expand');
+            var expanded = tr.hasClass('expand');
+
+            $(this).parents('table').find('tbody tr').toggleClass('expand', expanded);
+            e.preventDefault();
+        });
+
+        $(document).on('keypress', '.campaigns-wrap .campaign-search', function (e) {
+            if (e.keyCode == 13) {
+                var div = $(this).parents('.campaigns-wrap');
+                div.data('page', 1);
+                updateCampaignTable(div);
+            }
+        });
+
+            $(document).on('click', '.advanced-search-button', function (e) {
+                e.preventDefault();
+                var wrap = $(this).parents('.advanced-filter-wrap');
+                wrap.toggleClass('open');
+            });
+
+        $(document).on('click', '.btn-apply-advanced-search', function (e) {
+            var div = $(this).parents('.campaigns-wrap');
+            div.data('page', 1);
+            updateCampaignTable(div);
+            e.preventDefault();
+
+            var wrap = $(this).parents('.advanced-filter-wrap');
+            wrap.removeClass('open');
+        });
+        $(document).on('click', '.btn-clear-advanced-search', function (e) {
+            e.preventDefault();
+            var div = $(this).parents('.advanced-filter-settings');
+            div.find('input[type="number"], input[type="text"], input[type="date"]').val('');
+            div.find('input[type="checkbox"]').prop('checked', false);
+            div.find('select').each(function () { this.selectedIndex = 0; });
+
+            var wrap = $(this).parents('.advanced-filter-wrap');
+            wrap.removeClass('active');
+
+        });
+
+            
+
+        $(document).on('click', '.campaigns-wrap .show-message', function (e) {
+            e.preventDefault();
+            var messageId = $(this).data('messageid');
+            var subject = $(this).data('subject');
+            var modal = $('#message-modal');
+            modal.appendTo('body');
+            modal.modal('show');
+            modal.find('.modal-body').html('Loading...');
+            modal.find('.modal-title').text(subject);
+            $.get('/dashboard/GetMessage', { messageId }, function (ret) {
+                modal.find('.modal-body').html(ret);
+            });
+        });
+
+        $(document).on('click', '.campaigns-wrap .sort-col', function (e) {
+            e.preventDefault();
+
+            var dir = 'asc';
+
+            var th = $(this);
+            if (th.hasClass('sorted')) {
+                if (th.hasClass('sorted-asc'))
+                    dir = 'desc';
+                else
+                    dir = 'asc';
+            }
+
+            th.parent().find('tr').removeClass('sorted');
+            th.removeClass('sorted-asc sorted-desc');
+            th.addClass('sorted');
+            th.addClass('sorted-' + dir);
+
+            var div = $(this).parents('.campaigns-wrap');
+            div.data('sort', $(this).data('sort'));
+            div.data('dir', dir);
+            updateCampaignTable(div);
+        });
+
+        $(document).on('click', '[data-archive]', function (e) {
+            e.preventDefault();
+            var tr = $(this).parents('tr');
+            var campaignId = tr.data('campaignid');
+            var archive = $(this).data('archive');
+            $.getJSON('/dashboard/ToggleArchive', { campaignId: campaignId, archive: archive }, function (ret) {
+                updateCampaignTables();
+            });
+        });
+        $(document).on('click', '.show-followups', function (e) {
+            e.preventDefault();
+            var tr = $(this).parents('tr');
+            var tbl = tr.parents('table');
+            var campaignId = tr.data('campaignid');
+
+            if (tr.hasClass('expanded-followups')) {
+                $('[data-followupfor=' + campaignId + ']').remove();
+                tr.removeClass('expanded-followups');
+            }
+            else {
+                tr.addClass('expanded-followups');
+
+                $.get('/dashboard/GetFollowups', { campaignId: campaignId, teamMember: $('#team').val() }, function (ret) {
+
+                    var d = $('<div></div>');
+                    d.append(ret);
+                    d.find('tbody tr').insertAfter(tr);
+                });
+            }
+        });
+
+
+
+        $(document).on('click', '.change-state', function (e) {
+            e.preventDefault();
+            var tr = $(this).parents('tr');
+            var type = $(this).hasClass('cancel') ? 'cancel'
+                : $(this).hasClass('pause') ? 'pause' : 'play';
+            var hasFollowups = tr.data('hasfollowups');
+            var modal = $('#' + type + '-modal');
+            stateDraftId = tr.data('draftid');
+            modal.find('.has-followups').toggle(hasFollowups);
+            modal.appendTo('body').modal('show');
+            modal.find('.btn').prop('disabled', false);
+        });
+
+            $(document).on('click', '.campaigns-wrap a[data-page]', function (e) {
+            e.preventDefault();
+            var div = $(this).parents('.campaigns-wrap');
+            div.data('page', $(this).data('page'));
+            updateCampaignTable(div);
+
+        });
+
+        // save all button text
+        $('.modal .btn[data-pending]').each(function () {
+            $(this).data('text', $(this).text());
+        });
+
+        $(document).on('click', '#pause-modal .btn', function (e) {
+            e.preventDefault();
+            $('#pause-modal .btn').prop('disabled', true);
+            var btn = $(this);
+            btn.text(btn.data('pending'));
+
+            var type = $(this).data('type');
+            var url = '/gmass/pauseresumecampaign?pauseresume=' + type + '&emailaddress=' + email + '&DraftID=' + stateDraftId;
+
+            $.ajax({
+                url: url,
+                type: 'post',
+                dataType: 'json',
+                success: function (ret) {
+                    if (ret.success)
+                        getDraftRow(stateDraftId).removeClass('running').addClass('paused');
+
+
+                    showAlert(ret.PauseResumeMessage + ((!ret.success && ret.error.includes("not found")) ? " The campaign's DRAFT has been deleted so this campaign can't be paused or resumed." : ""));
+                },
+                complete: function () {
+                    btn.text(btn.data('text'));
+                }
+            });
+        });
+
+
+        $(document).on('click', '#cancel-modal .btn', function (e) {
+            e.preventDefault();
+            $('#cancel-modal .btn').prop('disabled', true);
+            var btn = $(this);
+            btn.text(btn.data('pending'));
+
+            var cancelAf = $(this).data('cancelaf');
+            var url = '/gmass/cancelcampaign?CancelAF=' + cancelAf + '&emailaddress=' + email + '&DraftID=' + stateDraftId;
+
+            $.ajax({
+                url: url,
+                type: 'post',
+                dataType: 'json',
+                success: function (ret) {
+                    if (ret.success) {
+                        var tr = getDraftRow(stateDraftId);
+                        tr.fadeOut(function () {
+                            tr.remove();
+                        });
+                        if (ret.DraftExists) {
+                            showAlert('The campaign has been cancelled');
+                        }
+                        else {
+                            showAlert('The campaign has been cancelled. Just FYI, the DRAFT for this campaign had already been deleted prior to you cancelling the campaign.')
+                        }
+                    }
+                    else {
+                        showAlert(ret.error || 'There was an error cancelling the campaign');
+                    }
+                },
+                complete: function () {
+                    btn.text(btn.data('text'));
+                }
+            });
+        });
+
+        $(document).on('click', '#play-modal .btn', function (e) {
+            e.preventDefault();
+
+            $('#play-modal .btn').prop('disabled', true);
+            var btn = $(this);
+            btn.text(btn.data('pending'));
+
+            var type = 'r';
+            var url = '/gmass/pauseresumecampaign?pauseresume=' + type + '&emailaddress=' + email + '&DraftID=' + stateDraftId;
+
+            $.ajax({
+                url: url,
+                type: 'post',
+                dataType: 'json',
+                success: function (ret) {
+                    if (ret.success)
+                        getDraftRow(stateDraftId).removeClass('paused').addClass('running');
+                    //showAlert(ret.PauseResumeMessage);
+                    showAlert(ret.PauseResumeMessage + ((!ret.success && ret.error.includes("not found")) ? " The campaign's DRAFT has been deleted so this campaign can't be paused or resumed." : ""));
+                },
+                complete: function () {
+                    btn.text(btn.data('text'));
+                }
+            });
+        });
+
+            $(document).on('click', '.details-link', function (e) {
+                $('.fly-in-panel, #settings-confirm-clear').remove();
+
+                var uniqueId = $(this).parents('tr').data('uniqueid');
+                var reportType = $(this).data('reporttype');
+                $('body').addClass('noscroll');
+
+                var url = '/dashboard/getdetailspanel?c=' + uniqueId + '&rt=' + reportType;
+
+                $.get(url, function (pnl) {
+                    $('body').append(pnl);
+                    setTimeout(function () {
+                        $('.fly-in-panel').addClass('visible');
+                    }, 1);
+                });
+
+            e.preventDefault();
+            });
+
+            $(document).on('click', '.t-details-link', function (e) {
+                $('.fly-in-panel, #settings-confirm-clear').remove();
+
+                var transactionalid = $(this).parents('tr').data('transactionalid');
+                var reportType = $(this).data('reporttype');
+                $('body').addClass('noscroll');
+
+                var url = '/dashboard/gettdetailspanel?id=' + transactionalid + '&rt=' + reportType;
+
+                $.get(url, function (pnl) {
+                    $('body').append(pnl);
+                    setTimeout(function () {
+                        $('.fly-in-panel').addClass('visible');
+                    }, 1);
+                });
+
+                e.preventDefault();
+            });
+
+        $(document).on('click', '.btn-auto-reply', function (e) {
+            var wrap = $(this).parents('.send-reply-wrap');
+            wrap.addClass('sending');
+            var type = $(this).data('replytype');
+
+            var replyData = {
+                c: $(this).data('uniqueid'),
+                replyCampaignId: $('#reply-message').val(),
+                replyId: $(this).data('replyid'),
+                lostReplyId: $(this).data('lostreplyid'),
+                replyType: type
+            };
+
+            $.get('/dashboard/SendReply', replyData, function (ret) {
+                wrap.html('<div class="text-center" style="padding:8px;">' + (type=="send" ? "Sent!" : "Drafted!") + '</div>');
+            });
+
+            e.preventDefault();
+        });
+        $(document).on('click', '.see-more-reply', function (e) {
+            var div = $(this).parents('.reply-content');
+            div.toggleClass('see-more');
+            e.preventDefault();
+        });
+
+        $(document).on('click', '.btn-ab', function (e) {
+            var uniqueid = $(this).data('uniqueid');
+
+            var modal = $('#ab-modal');
+            modal.appendTo('body');
+            modal.modal('show');
+            modal.find('.modal-body').html('Loading...');
+            var msg = $.get('/abtest/generatechoosertablefordashboard', { campaignUniqueId: uniqueid }, function (ret) {
+                modal.find('.modal-body').html(ret);
+            });
+
+            e.preventDefault();
+        });
+
+        $(document).on('click', '.debug-log', function (e) {
+            var campaignId = $(this).data('campaignid');
+            var modal = $('#debuglog-modal');
+            modal.appendTo('body');
+            modal.modal('show');
+            modal.find('.modal-body').html('Loading...');
+            var msg = $.get('/dashboard/getdebuglog', { campaignId: campaignId}, function (ret) {
+                modal.find('.modal-body').html(ret);
+            });
+        });
+
+            $(document).on('click', '.reset-campaign', function (e) {
+                e.preventDefault();
+                var lnk = $(this);
+                var id = $(this).data('scheduledid');
+
+                $.get('/gmass/resetcampaign?id=' + id, function (ret) {
+                    if (ret.success) {
+                        lnk.remove();
+                        showAlert('This campaign has been reset.');
+                    }
+                    else {
+                        showAlert('Campaign reset failed.');
+                    }
+                });
+            });
+
+    });
+    </script>
+
+</body>
+</html>
